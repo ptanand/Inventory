@@ -12,6 +12,10 @@ const onSignupSuccess = function () {
   $('#non-member').hide()
 }
 
+const onSignupFailure = function () {
+  $('#auth-display').html('<p>Error while signing up</p>')
+}
+
 const onSignInSuccess = function (response) {
   console.log(response)
   store.user = response.user
@@ -26,6 +30,8 @@ const onSignInSuccess = function (response) {
   $('#sign-out-button').show()
   $('#todo-E').show()
   $('#todo-S').show()
+  $('#update-p').show()
+  // $('#').toggle
 }
 
 const onSignInFailure = function () {
@@ -34,8 +40,12 @@ const onSignInFailure = function () {
   $('#sign-in-form').show()
 }
 
-const onSignupFailure = function () {
-  $('#auth-display').html('<p>Error while signing up</p>')
+const onUpPasswordSuccess = function () {
+  $('up-pass-display').html('<p>Password updated successfully</p>').fadeOut(5000)
+}
+
+const onUpPasswordFailure = function () {
+  $('#auth-display1').html('<p>Error while updating password in</p>').fadeOut(5000)
 }
 
 const onSignOutSuccess = function () {
@@ -49,14 +59,61 @@ const onSignOutSuccess = function () {
 const onSignOutFailure = function () {
   $('#auth-display2').html('<p>Error while logging out</p>')
 }
+
 const onCreateSuccess = function () {
   $('#display-C').html('<p>Created successfully</p>')
-//   $('#todo-E').hide()
+  $('form').trigger('reset').hide()
+  $('#todo-E').hide()
 //   $('#enter-P').hide()
 }
 
 const onCreateFailure = function () {
   $('#display-C').html('<p>CREATION ERROR</p>')
+}
+
+const onIndexSuccess = function (responseData) {
+  const inventory = responseData.inventory
+  console.log(responseData)
+  let inventoryHtml = ''
+  inventory.forEach((inventory) => {
+    inventoryHtml += `
+    <div>  
+    <h4>Name: ${inventory.name}</h4>
+      <p>Description: ${inventory.description}</p>
+      <h4>Price: ${inventory.price}</h4>
+      <p>Quantity: ${inventory.quantity}</p>
+      <p>ID: ${inventory._id}</p>
+      
+    </div>
+    `
+  })
+  $('#inventory-display').html(inventoryHtml)
+  $('#todo-U').show()
+}
+
+const onUpdateSuccess = function (responseData) {
+  // add success message to our books-update-message element
+  $('#inventory-update-message').html('You successfully updated the inventory')
+
+  // empty out the books-display element in case it was displaying information
+  // about the book we just updated, replace with a message for the user to get
+  // all the books again.
+  $('#inventory-display').html(
+    'Inventory have changed! Click "Get Show Products", to see all the inventory.'
+  )
+
+  // add class for success messaging
+  $('#inventory-update-message').addClass('success')
+
+  // use setTimeout to allow the success message to stay for 5 seconds before
+  // the message is replaced with '' and the 'success' class is removed
+  setTimeout(() => {
+    $('#inventory-update-message').html('')
+    $('#inventory-update-message').removeClass('success')
+  }, 5000)
+
+  // reset all forms
+  $('form').trigger('reset').hide()
 }
 
 module.exports = {
@@ -67,6 +124,13 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onCreateSuccess,
-  onCreateFailure
+  onCreateFailure,
+  onUpPasswordSuccess,
+  onUpPasswordFailure,
+  onIndexSuccess,
+  onUpdateSuccess
+
+  // onShowSuccess,
+  // onShowFailure
 
 }

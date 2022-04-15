@@ -23,9 +23,6 @@ const onSignup = function (event) {
 
 function onSignIn (event) {
   event.preventDefault()
-
-  console.log('maharaj') // need to remove this after testing!!!!!!!!!
-
   const form = event.target
   const data = getFormFields(form)
   console.log(data) // need to delete this after
@@ -34,6 +31,18 @@ function onSignIn (event) {
     .onSignIn(data)
     .then((response) => linkUi.onSignInSuccess(response))
     .catch(() => linkUi.onSignInFailure())
+}
+
+const onUpPassword = function (event) {
+  event.preventDefault()
+  console.log('change password ran!')
+
+  const data = getFormFields(event.target)
+  console.log(data)
+  authApi
+    .onUpPassword(data)
+    .then(linkUi.changePasswordSuccess)
+    .catch(linkUi.changePasswordFailure)
 }
 
 const onSignOut = function () {
@@ -51,17 +60,56 @@ const onCreate = function (event) {
   const form = event.target
   const data = getFormFields(form)
   console.log(data)
-  console.log('hi')
   authApi
     .onCreate(data)
     .then(() => linkUi.onCreateSuccess())
     .catch(() => linkUi.onCreateFailure())
 }
 
+// Show every book (an index or list action)
+const onIndex = function () {
+  // make API call to get all of the books
+  authApi.onIndex()
+
+  // if API call is successful then pass the data to the onIndexSuccess function
+    .then(response => linkUi.onIndexSuccess(response))
+
+  // if API call fails then run our onError function
+    .catch(linkUi.onIndexFailure)
+}
+
+const onDynamicUpdateInventory = function (event) {
+  event.preventDefault()
+  const updateForm = event.target
+  const id = $(updateForm).data('id')
+  const formData = getFormFields(event.target)
+
+  authApi
+    .update(id, formData)
+    .then(response => console.log(response))
+    .then(linkUi.onUpdateSuccess)
+    .catch(linkUi.onError)
+}
+
+const onUpdateInventory = function (event) {
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+  const id = formData.id
+  authApi
+    .onUpdateIn(id, formData)
+    .then(linkUi.onUpdateSuccess)
+    .catch(linkUi.onError)
+}
+
 module.exports = {
   onSignup,
   onSignIn,
   onSignOut,
-  onCreate
+  onCreate,
+  onUpPassword,
+  onIndex,
+  onDynamicUpdateInventory,
+  onUpdateInventory
+  // onShow
 
 }
