@@ -25,7 +25,7 @@ const onSignInSuccess = function (response) {
   $('#members').hide()
   $('#non-member').hide()
   $('#auth-display-sign-in')
-    .html('<p>These are the things you can do as a member:</p>')
+    .html('<p>As a member you can do the following::</p>')
     .show()
   $('#sign-out-button').show()
   $('#todo-E').show()
@@ -54,6 +54,12 @@ const onSignOutSuccess = function () {
   $('form').trigger('reset')
   $('#non-member').show()
   $('#members').show()
+  $('#todo-S').hide()
+  $('#inventory-display').fadeOut(4000)
+  $('#todo-E').hide()
+  $('#update-p').hide()
+  // $('#auth-display-sign-in').hide()
+  $('#auth-display-sign-in').fadeOut(2000)
 }
 
 const onSignOutFailure = function () {
@@ -61,9 +67,9 @@ const onSignOutFailure = function () {
 }
 
 const onCreateSuccess = function () {
-  $('#display-C').html('<p>Created successfully</p>')
+  $('#display-C').html('<p>Created successfully</p>').fadeOut(5000)
   $('form').trigger('reset').hide()
-  $('#todo-E').hide()
+  // $('#todo-E')
 //   $('#enter-P').hide()
 }
 
@@ -83,12 +89,21 @@ const onIndexSuccess = function (responseData) {
       <h4>Price: ${inventory.price}</h4>
       <p>Quantity: ${inventory.quantity}</p>
       <p>ID: ${inventory._id}</p>
-      
+      <form class="inventory-update-dynamic" data-id=${inventory._id}>
+        <input type="text" name="inventory[name]" placeholder="Product Name Here">
+        <input type="text" name="inventory[description]" placeholder="Description Here">
+        <input type="text" name="inventory[price]" placeholder="Price Here">
+        <input type="text" name="inventory[quantity]" placeholder="Quantity Here">
+        <button type="submit">Update Inventory</button>
+      </form>
+      <button class='inventory-delete-dynamic' data-id=${inventory._id}>Delete Product</button>
+      <br>
     </div>
     `
   })
-  $('#inventory-display').html(inventoryHtml)
-  $('#todo-U').show()
+  $('#inventory-display').html(inventoryHtml).show()
+  // $('#todo-U').show()
+  // $('#todo-del').show()
 }
 
 const onUpdateSuccess = function (responseData) {
@@ -116,6 +131,21 @@ const onUpdateSuccess = function (responseData) {
   $('form').trigger('reset').hide()
 }
 
+const onDeleteInSuccess = function () {
+  $('#inventory-destroy-message').html('Inventory successfully deleted!')
+  $('#inventory-display2').html(
+    'Inventory has changed! Click "Show Products " to see inventory'
+  )
+  $('#inventory-destroy-message').addClass('success')
+  setTimeout(() => {
+    $('#inventory-destroy-message').html('')
+    $('#inventory-destroy-message').removeClass('success')
+  }, 5000)
+
+  // reset all forms
+  $('form').trigger('reset').hide()
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -128,9 +158,7 @@ module.exports = {
   onUpPasswordSuccess,
   onUpPasswordFailure,
   onIndexSuccess,
-  onUpdateSuccess
-
-  // onShowSuccess,
-  // onShowFailure
+  onUpdateSuccess,
+  onDeleteInSuccess
 
 }

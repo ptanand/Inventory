@@ -29,8 +29,14 @@ $(() => {
     $('#update-p').hide()
     $('#update-p-word').hide()
   })
-  $('#todo-U').on('click', function () {
-    $('#enter-U').show()
-  })
-  $('#enter-U').on('submit', authEvents.onUpdateInventory)
+  $('#inventory-display').on('submit', '.inventory-update-dynamic', authEvents.onUpdateInventory)
+  $('#inventory-display').on('click', '.inventory-delete-dynamic', authEvents.onDeleteInventory)
+  // $('#todo-U').on('click', function () {
+  //   $('#enter-U').show()
+  // })
+  // $('#enter-U').on('submit', authEvents.onUpdateInventory)
+  // $('#todo-del').on('click', function () {
+  //   $('#delete').show()
+  // })
+  // $('#delete').on('submit', authEvents.onDeleteInventory)
 })

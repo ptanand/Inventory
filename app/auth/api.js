@@ -62,14 +62,26 @@ const onIndex = function () {
   })
 }
 
-const onUpdateIn = function (id, data) {
+const onUpdateIn = function (id, formData) {
   return $.ajax({
     url: config.apiUrl + '/inventory/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: { inventory: data }
+    data: formData
+  })
+}
+
+const onDeleteIn = function (id) {
+  console.log(id)
+  console.log(store)// delete this
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/inventory/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
@@ -80,7 +92,8 @@ module.exports = {
   onSignOut,
   onCreate,
   onIndex,
-  onUpdateIn
+  onUpdateIn,
+  onDeleteIn
   // onShow
 
 }

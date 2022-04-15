@@ -78,26 +78,42 @@ const onIndex = function () {
     .catch(linkUi.onIndexFailure)
 }
 
-const onDynamicUpdateInventory = function (event) {
-  event.preventDefault()
-  const updateForm = event.target
-  const id = $(updateForm).data('id')
-  const formData = getFormFields(event.target)
+// const onDynamicUpdateInventory = function (event) {
+//   event.preventDefault()
+//   const updateForm = event.target
+//   const id = $(updateForm).data('id')
+//   const formData = getFormFields(event.target)
 
-  authApi
-    .update(id, formData)
-    .then(response => console.log(response))
-    .then(linkUi.onUpdateSuccess)
-    .catch(linkUi.onError)
-}
+//   authApi.update(id, formData)
+//     .then(response => console.log(response))
+//     .then(linkUi.onUpdateSuccess)
+//     .catch(linkUi.onError)
+// }
 
 const onUpdateInventory = function (event) {
   event.preventDefault()
+  // const formData = getFormFields(event.target)
+  // const id = formData.id
+  const updateForm = event.target
+
+  const id = $(updateForm).data('id')
   const formData = getFormFields(event.target)
-  const id = formData.id
-  authApi
-    .onUpdateIn(id, formData)
+  authApi.onUpdateIn(id, formData)
     .then(linkUi.onUpdateSuccess)
+    .then(onIndex)
+    .catch(linkUi.onError)
+}
+
+const onDeleteInventory = function (event) {
+  // event.preventDefault()
+  // console.log('HELLO!!')
+  // const formData = getFormFields(event.target)
+  const deleteButton = event.target
+  const id = $(deleteButton).data('id')
+  authApi.onDeleteIn(id)
+    .then(linkUi.onDeleteInSuccess)
+  // .then(linkUi.onSignInSuccess)
+    .then(onIndex)
     .catch(linkUi.onError)
 }
 
@@ -108,8 +124,9 @@ module.exports = {
   onCreate,
   onUpPassword,
   onIndex,
-  onDynamicUpdateInventory,
-  onUpdateInventory
+  // onDynamicUpdateInventory,
+  onUpdateInventory,
+  onDeleteInventory
   // onShow
 
 }
