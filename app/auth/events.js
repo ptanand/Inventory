@@ -35,7 +35,6 @@ function onSignIn (event) {
 
 const onUpPassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
 
   const data = getFormFields(event.target)
   console.log(data)
@@ -77,18 +76,6 @@ const onIndex = function () {
   // if API call fails then run our onError function
     .catch(linkUi.onIndexFailure)
 }
-
-// const onDynamicUpdateInventory = function (event) {
-//   event.preventDefault()
-//   const updateForm = event.target
-//   const id = $(updateForm).data('id')
-//   const formData = getFormFields(event.target)
-
-//   authApi.update(id, formData)
-//     .then(response => console.log(response))
-//     .then(linkUi.onUpdateSuccess)
-//     .catch(linkUi.onError)
-// }
 
 const onUpdateInventory = function (event) {
   event.preventDefault()

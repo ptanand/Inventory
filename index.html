@@ -12,63 +12,68 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <header>
-      <h1>The Shop Inventory</h1>
-      <img class="header" src="app/Image/logo 2.jpg"/>
-      </header>
-      <div>
-      <button id='members' type="submit">Members</button>
-
-      <button id='non-member' >Non-members</button>
+       <h1>The Shop Inventory</h1>
+      <div class="one" id="pic1">
+      <img class="header" src="app/Image/logo1.jpg"/>
+      <button class="member-s" id='members' type="submit">Members</button>
+      <button class="member-s" id='non-member' >Non-members</button></div>
+     
+      <div class="displays">
+       <section id="auth-display3"></section>
+       <section id="auth-display4"></section>
+       <section id="auth-display-sign-in"></section>
+       <section id="auth-display"></section>
+       <section id="auth-display1"></section>
+       <section id="up-pass-display"></section>
+       <section id="display-C"></section>
+       <section id="inventory-display"></section>
       </div>
-      
 
       <form id="sign-up-form">
-        <h4>Sign Up</h4>
-       <input id='signup-name' name="credentials[email]" type="email" placeholder="Enter your mail"></input>
-        <input id='signup-pass' name="credentials[password]" type="password" placeholder="Enter password"></input>
-        <input id='signup-pass2' name="credentials[password_confirmation]" type="password"
+         <h4>Sign Up</h4>
+         <input id='signup-name' name="credentials[email]" type="email" placeholder="Enter your mail"></input>
+         <input id='signup-pass' name="credentials[password]" type="password" placeholder="Enter password"></input>
+         <input id='signup-pass2' name="credentials[password_confirmation]" type="password"
           placeholder="Confirm password"></input>
-        <button id='signup' type="submit">Sign Up</button>
+         <button id='signup' class="sub-butts" type="submit">Sign Up</button>
       </form>
-      <section id="auth-display-sign-in"></section>
-      <section id="auth-display"></section>
+      
       
       
       <form id="sign-in-form" class="signup">
         <h4>Sign In</h4>
         <input name="credentials[email]" type="email" placeholder="Enter email">
         <input name="credentials[password]" type="password" placeholder="Enter password">
-        <button type="submit">Sign In</button>
+        <button class="sub-butts" type="submit">Sign In</button>
       </form>
-      <section id="auth-display1"></section>
+      
       <div class="buttons"> 
-      <button id="sign-out-button" class="sign-out">Sign Out</button>       
-      <button id='update-p' type="submit" class="todo">Update Password</button>
-      <button id="todo-E" class="todo">Enter a Product</button>
-      <button id="todo-S" class="todo">Show Products</button>
+        <button id="sign-out-button" class="sign-out">Sign Out</button>       
+        <button id='update-p' type="submit" class="todo">Update Password</button>
+        <button id="todo-E" class="todo">Enter a Product</button>
+        <button id="todo-S" class="todo">Show Products</button>
       </div>
+
+
       <form id="update-p-word" class="todo">
         <h4>Update Password</h4>
         <input name="passwords[old]" type="text" placeholder="Enter Old Password">
         <input name="passwords[new]" type="text" placeholder="New Password">
-        <button id="update-btn" type="submit">Update</button>
+        <button id="update-btn" class="sub-butts" type="submit" >Update</button>
       </form>
-      <section id="up-pass-display"></section>
-
-
+     
       
       <form id="enter-P" class="enter">
         <input name="name" type="text" placeholder="Product Name">
         <input name="description" type="text" placeholder="Description">
         <input name="price" type="test" placeholder="Price">
         <input name="quantity" type="text" placeholder="Quantity">
-        <button id="new-product" type="submit">Submit</button> 
+        <button id="new-product" class="sub-butts" type="submit">Submit</button> 
       </form>
-      <section id="display-C"></section>
+     
 
       <button id="todo-S" class="todo">Show Products</button>
-      <section id="inventory-display"></section>
+      
 
       <button id="todo-U" class="todo">Update a Product</button>
       <form id="enter-U" class="enter">
@@ -81,21 +86,6 @@
       </form>
 
       
-      
-      
-      
-
-      
-      
-
-      
-      
-      
-      
-      <section id="auth-display3"></section>
-
-
-
         
     </body>
 </html>

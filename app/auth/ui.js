@@ -25,7 +25,7 @@ const onSignInSuccess = function (response) {
   $('#members').hide()
   $('#non-member').hide()
   $('#auth-display-sign-in')
-    .html('<p>As a member you can do the following::</p>')
+    .html('<p> <------- As a member you can do these things.</p>')
     .show()
   $('#sign-out-button').show()
   $('#todo-E').show()
@@ -35,17 +35,23 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function () {
-  $('#auth-display1').html('<p>Error while signing in</p>')
+  $('#auth-display1').html('<p>Error while signing in</p>').show()
   $('form').trigger('reset')
   $('#sign-in-form').show()
 }
 
-const onUpPasswordSuccess = function () {
-  $('up-pass-display').html('<p>Password updated successfully</p>').fadeOut(5000)
+const changePasswordSuccess = function () {
+  $('#up-pass-display')
+    .html('<p>Password updated successfully</p>')
+    .show()
+    .fadeOut(5000)
 }
 
-const onUpPasswordFailure = function () {
-  $('#auth-display1').html('<p>Error while updating password in</p>').fadeOut(5000)
+const changePasswordFailure = function () {
+  $('#up-pass-display')
+    .html('<p>Error while updating password</p>')
+    .show()
+    .fadeOut(5000)
 }
 
 const onSignOutSuccess = function () {
@@ -63,18 +69,18 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutFailure = function () {
-  $('#auth-display2').html('<p>Error while logging out</p>')
+  $('#auth-display2').html('<p>Error while logging out</p>').show()
 }
 
 const onCreateSuccess = function () {
-  $('#display-C').html('<p>Created successfully</p>').fadeOut(5000)
+  $('#display-C').html('<p>Product Created successfully. You need to CLICK ON SHOW PRODUCTS to see details </p>').show().fadeOut(8000)
   $('form').trigger('reset').hide()
   // $('#todo-E')
 //   $('#enter-P').hide()
 }
 
 const onCreateFailure = function () {
-  $('#display-C').html('<p>CREATION ERROR</p>')
+  $('#display-C').html('<p>CREATION ERROR</p>').show()
 }
 
 const onIndexSuccess = function (responseData) {
@@ -107,40 +113,30 @@ const onIndexSuccess = function (responseData) {
 }
 
 const onUpdateSuccess = function (responseData) {
-  // add success message to our books-update-message element
-  $('#inventory-update-message').html('You successfully updated the inventory')
-
-  // empty out the books-display element in case it was displaying information
-  // about the book we just updated, replace with a message for the user to get
-  // all the books again.
-  $('#inventory-display').html(
-    'Inventory have changed! Click "Get Show Products", to see all the inventory.'
-  )
-
-  // add class for success messaging
-  $('#inventory-update-message').addClass('success')
-
-  // use setTimeout to allow the success message to stay for 5 seconds before
-  // the message is replaced with '' and the 'success' class is removed
-  setTimeout(() => {
-    $('#inventory-update-message').html('')
-    $('#inventory-update-message').removeClass('success')
-  }, 5000)
+  $('#auth-display3').html('You successfully updated the inventory').show().fadeOut(4000)
+  // $('#auth-display3').html(
+  //   'Inventory have changed! Click "Get Show Products", to see all the inventory.'
+  // )
+  // $('#inventory-update-message').addClass('success')
+  // setTimeout(() => {
+  //   $('#inventory-update-message').html('')
+  // $('#auth-display3').fadeOut(5000) // removeClass('success')
+  // }, 5000)
 
   // reset all forms
   $('form').trigger('reset').hide()
 }
 
 const onDeleteInSuccess = function () {
-  $('#inventory-destroy-message').html('Inventory successfully deleted!')
-  $('#inventory-display2').html(
-    'Inventory has changed! Click "Show Products " to see inventory'
-  )
-  $('#inventory-destroy-message').addClass('success')
-  setTimeout(() => {
-    $('#inventory-destroy-message').html('')
-    $('#inventory-destroy-message').removeClass('success')
-  }, 5000)
+  $('#auth-display4').html('Product successfully deleted!').show().fadeOut(5000)
+  $('#auth-display4').html(
+    'A Product was deleted! Click "Show Products " to see inventory or click "Enter Product to add.'
+  ).fadeIn(3000).fadeOut(6000)
+  // $('#inventory-destroy-message').addClass('success')
+  // setTimeout(() => {
+  //   $('#inventory-destroy-message').html('')
+  //   $('#inventory-destroy-message').removeClass('success')
+  // }, 5000)
 
   // reset all forms
   $('form').trigger('reset').hide()
@@ -155,10 +151,9 @@ module.exports = {
   onSignOutFailure,
   onCreateSuccess,
   onCreateFailure,
-  onUpPasswordSuccess,
-  onUpPasswordFailure,
+  changePasswordSuccess,
+  changePasswordFailure,
   onIndexSuccess,
   onUpdateSuccess,
   onDeleteInSuccess
-
 }

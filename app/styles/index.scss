@@ -3,40 +3,101 @@
 
 #sign-up-form{
     display: none;
+    
 }
+
 #sign-in-form{
     display:none;
 }
+
 #sign-out-button{
     display:none;
+    background-color: purple;
+    color:yellow;
+    border-radius: 10%;
+    transition: 150ms;
 }
+
 .todo{
     
     display: none;
+    color: solid black;
+    background-color: rgb(121, 96, 34);
 }
+
 .enter{
     display: none;
 }
-header{
-    position: sticky;
-    top:0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    //left: 40%;
 
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+div.one{
+    height:7%;
+    width:100%;
     background-color: rgb(19, 4, 4);
-    color: white;
+    
+    float:left;
 }
+div.displays{
+    float: right;
+    height: 4%;
+    width: 50%;
+}
+
+.header{
+    height:305px;
+}
+
+h1{ // header [the store inventory]
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-color: rgb(19, 4, 4);
+color: rgb(121, 96, 34);
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 100px;
+font-style: italic;
+font-weight: bolder;
+}
+
+.member-s{
+//display: flex;
+justify-content: space-evenly;
+width: 16%;
+border-radius: 20px;
+background:rgb(121, 96, 34);
+color: solid black;
+}
+
+body{
+ background-color: rgb(19, 4, 4);
+ color:yellow;
+ padding: 10px;
+ margin: 5px;
+}
+
+.sub-butts{
+    justify-content: space-evenly;
+    width: 16%;
+    border-radius: 20px;
+    background:rgb(121, 96, 34);
+    color: solid black;
+}
+
 .buttons{
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 50%;
+    border-radius: 20px;
+     
 }
+
+
+
+input{
+background-color: blue;
+border-radius: 5px;
+color: yellow;
+}
+//{
+    //background:red;
+//}
