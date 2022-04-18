@@ -1,0 +1,131 @@
+@import '~bootstrap/scss/bootstrap';
+
+
+#sign-up-form{
+    display: none;
+    
+}
+
+#sign-in-form{
+    display:none;
+}
+
+#sign-out-button{
+    display:none;
+    background-color: purple;
+    color:yellow;
+    border-radius: 5%;
+    border-color: white;
+    transition: 150ms;
+}
+.inventory-delete-dynamic{
+    background-color: blue;
+    color: white;
+    border-radius: 5%;
+    border-color: white;
+    transition: 150ms;
+    margin-top: 10px;
+    
+    
+}
+.inventory-update{
+    background-color: rgb(121, 96, 34);
+    color: white;
+    border-radius: 5%;
+    border-color: white;
+    transition: 150ms;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.todo{
+    border-radius: 5%;
+    display: none;
+    color: solid black;
+    background-color: rgb(121, 96, 34);
+    border-color: purple;
+}
+
+.enter{
+    display: none;
+}
+
+div.one{
+    height:7%;
+    width:100%;
+    background-color: rgb(19, 4, 4);
+    
+    float:left;
+}
+
+
+div.displays{
+    float: right;
+    height: 4%;
+    width: 50%;
+    color: purple;
+}
+div.left-display{
+    position: fixed;
+    height: 4%;
+    width: 50%;
+}
+
+.header{
+    height: 280px;
+}
+
+h1{ // header [the store inventory]
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-color: rgb(19, 4, 4);
+color: rgb(121, 96, 34);
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 100px;
+font-style: italic;
+font-weight: bolder;
+}
+
+.member-s{
+justify-content: space-evenly;
+width: 12%;
+border-radius: 15px;
+background:rgb(121, 96, 34);
+color: solid black;
+}
+
+body{
+ background-color: rgb(19, 4, 4);
+ color:yellow;
+ padding: 10px;
+ margin: 5px;
+}
+
+.sub-butts{ 
+    justify-content: space-evenly;
+    width: 16%;
+    border-radius: 5px;
+    background:rgb(121, 96, 34);
+    color: solid white;
+}
+
+.buttons{
+   // position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    //border-radius: 5px;
+     
+}
+
+
+
+input{
+background-color: rgb(94, 72, 72);
+border-radius: 5px;
+color: white;
+}
+//{
+    //background:red;
+//}
