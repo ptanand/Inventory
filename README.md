@@ -1,6 +1,6 @@
 ** Products Inventory By Anand Maharaj**
 
-# Link:  
+# Link:  https://ptanand.github.io/Inventory/
 
 # Planning:
 - Wireframe
