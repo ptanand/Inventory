@@ -9,11 +9,11 @@ const linkUi = require('./ui.js')
 const onSignup = function (event) {
   event.preventDefault()
 
-  console.log('anand') // need to remove this !!!!!!!!!!!!!!!!!!!!!
+  // console.log('anand') // need to remove this !!!!!!!!!!!!!!!!!!!!!
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   authApi
     .onSignup(data)
@@ -25,7 +25,7 @@ function onSignIn (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data) // need to delete this after
+  // console.log(data) // need to delete this after
 
   authApi
     .onSignIn(data)
@@ -37,7 +37,7 @@ const onUpPassword = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  console.log(data)
+  // console.log(data)
   authApi
     .onUpPassword(data)
     .then(linkUi.changePasswordSuccess)
@@ -56,7 +56,7 @@ const onCreate = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
   authApi
     .onCreate(data)
     .then(() => linkUi.onCreateSuccess())

@@ -17,7 +17,7 @@ const onSignupFailure = function () {
 }
 
 const onSignInSuccess = function (response) {
-  console.log(response)
+  // console.log(response)
   store.user = response.user
   $('#auth-display1').html('<p>User signed in successfully</p>').show().fadeOut(6000)
   $('form').trigger('reset')
@@ -38,7 +38,7 @@ const onSignInFailure = function () {
   $('form').trigger('reset')
   $('#sign-in-form').show()
 }
-4
+
 const changePasswordSuccess = function () {
   $('#up-pass-display')
     .html('<p>Password updated successfully</p>')
@@ -87,7 +87,7 @@ const onCreateFailure = function () {
 
 const onIndexSuccess = function (responseData) {
   const inventory = responseData.inventory
-  console.log(responseData)
+  // console.log(responseData)
   let inventoryHtml = ''
   inventory.forEach((inventory) => {
     inventoryHtml += `

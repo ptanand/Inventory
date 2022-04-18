@@ -29,7 +29,7 @@ const onSignOut = function () {
 }
 
 const onUpPassword = function (data) {
-  console.log('data is ', data)
+  // console.log('data is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -74,8 +74,8 @@ const onUpdateIn = function (id, formData) {
 }
 
 const onDeleteIn = function (id) {
-  console.log(id)
-  console.log(store)// delete this
+  // console.log(id)
+  // console.log(store)// delete this
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/inventory/' + id,
