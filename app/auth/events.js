@@ -9,8 +9,6 @@ const linkUi = require('./ui.js')
 const onSignup = function (event) {
   event.preventDefault()
 
-  // console.log('anand') // need to remove this !!!!!!!!!!!!!!!!!!!!!
-
   const form = event.target
   const data = getFormFields(form)
   // console.log(data)
