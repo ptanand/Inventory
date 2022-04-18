@@ -54,14 +54,13 @@ const onSignOut = function () {
 const onCreate = function (event) {
   event.preventDefault()
 
-  console.log('anandi') // need to remove this
-
   const form = event.target
   const data = getFormFields(form)
   console.log(data)
   authApi
     .onCreate(data)
     .then(() => linkUi.onCreateSuccess())
+    .then(onIndex)
     .catch(() => linkUi.onCreateFailure())
 }
 
@@ -88,7 +87,7 @@ const onUpdateInventory = function (event) {
   authApi.onUpdateIn(id, formData)
     .then(linkUi.onUpdateSuccess)
     .then(onIndex)
-    .catch(linkUi.onError)
+    .catch(linkUi.onUpdateFailure)
 }
 
 const onDeleteInventory = function (event) {
@@ -101,7 +100,7 @@ const onDeleteInventory = function (event) {
     .then(linkUi.onDeleteInSuccess)
   // .then(linkUi.onSignInSuccess)
     .then(onIndex)
-    .catch(linkUi.onError)
+    .catch(linkUi.onDeleteFailure)
 }
 
 module.exports = {

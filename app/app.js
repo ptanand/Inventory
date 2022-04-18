@@ -23,7 +23,7 @@ $(() => {
   $('#enter-P').on('submit', authEvents.onCreate)
   $('#todo-S').on('click', authEvents.onIndex)
   $('#update-p').on('click', function () {
-    $('#update-p-word').show()
+    $('#update-p-word').toggle()
   })
   $('#update-btn').on('click', function () {
     $('#update-p').hide()
@@ -31,12 +31,4 @@ $(() => {
   })
   $('#inventory-display').on('submit', '.inventory-update-dynamic', authEvents.onUpdateInventory)
   $('#inventory-display').on('click', '.inventory-delete-dynamic', authEvents.onDeleteInventory)
-  // $('#todo-U').on('click', function () {
-  //   $('#enter-U').show()
-  // })
-  // $('#enter-U').on('submit', authEvents.onUpdateInventory)
-  // $('#todo-del').on('click', function () {
-  //   $('#delete').show()
-  // })
-  // $('#delete').on('submit', authEvents.onDeleteInventory)
 })

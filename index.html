@@ -12,29 +12,25 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-       <h1>The Shop Inventory</h1>
+       <h1>Products Inventory</h1>
       <div class="one" id="pic1">
       <img class="header" src="app/Image/logo1.jpg"/>
       <button class="member-s" id='members' type="submit">Members</button>
       <button class="member-s" id='non-member' >Non-members</button></div>
      
+    
+     
       <div class="displays">
-       <section id="auth-display3"></section>
-       <section id="auth-display4"></section>
-       <section id="auth-display-sign-in"></section>
-       <section id="auth-display"></section>
-       <section id="auth-display1"></section>
-       <section id="up-pass-display"></section>
-       <section id="display-C"></section>
        <section id="inventory-display"></section>
       </div>
+      
 
       <form id="sign-up-form">
          <h4>Sign Up</h4>
-         <input id='signup-name' name="credentials[email]" type="email" placeholder="Enter your mail"></input>
-         <input id='signup-pass' name="credentials[password]" type="password" placeholder="Enter password"></input>
+         <input id='signup-name' name="credentials[email]" type="email" placeholder="Enter email"></input>
+         <input id='signup-pass' name="credentials[password]" type="password" placeholder="Enter Password"></input>
          <input id='signup-pass2' name="credentials[password_confirmation]" type="password"
-          placeholder="Confirm password"></input>
+          placeholder="Confirm Password"></input>
          <button id='signup' class="sub-butts" type="submit">Sign Up</button>
       </form>
       
@@ -49,7 +45,7 @@
       
       <div class="buttons"> 
         <button id="sign-out-button" class="sign-out">Sign Out</button>       
-        <button id='update-p' type="submit" class="todo">Update Password</button>
+        <button id="update-p" type="submit" class="todo">Update Password</button>
         <button id="todo-E" class="todo">Enter a Product</button>
         <button id="todo-S" class="todo">Show Products</button>
       </div>
@@ -84,7 +80,16 @@
         <input name="quantity" type="text" placeholder="Quantity">
         <button id="up-product" class="up-product" type="submit">Submit</button>
       </form>
-
+      <div class="left-display">
+        <section id="auth-display3"></section>
+        <section id="auth-display4"></section>
+        <section id="auth-display-sign-in"></section>
+        <section id="auth-display"></section>
+        <section id="auth-display-m"></section>
+        <section id="auth-display1"></section>
+        <section id="up-pass-display"></section>
+        <section id="display-C"></section>
+      </div>
       
         
     </body>
